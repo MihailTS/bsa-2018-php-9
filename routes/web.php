@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('currencies', 'Currency\CurrencyController');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('login/{providerName}', 'Auth\LoginController@redirectToProvider')->name('socialLogin');
+Route::get('login/{providerName}/callback', 'Auth\LoginController@handleProviderCallback');

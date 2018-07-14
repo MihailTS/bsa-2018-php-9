@@ -1,14 +1,32 @@
+@import '~materialize-css/dist/css/materialize';
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+.currency-field__name {
+  font-weight: bold;
+  color: black;
+}
 
-// Variables
-@import "variables";
+.currency-show-table {
+  margin-bottom: 10px;
+}
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+.btn {
+  text-transform: none;
+}
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.social-login{
+  margin:20px;
+}
+.social-login__title{
+  text-align:center;
+  margin-bottom:15px;
+}
+.social-login__providers{
+  display: flex;
+  justify-content: space-between;
+}
+.currencies__edit-btns{
+  display:flex;
+}
+.currencies__edit-btn{
+  margin:0 10px;
 }
