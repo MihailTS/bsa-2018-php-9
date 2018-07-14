@@ -1,3 +1,12 @@
+Admin:
+email: 'test_admin@example.com'
+password: secret
+
+Regular user:
+email: 'test_user@example.com'
+password: secret
+
+
 # Домашнее задание Laravel auth
 
 ## Цель
