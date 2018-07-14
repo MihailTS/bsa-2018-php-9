@@ -71,9 +71,11 @@ class LoginController extends Controller
                 [
                     'name' => $socialUser->name,
                     'email' => $email,
-                    'password' => str_random(10),
-                    'remember_token' => str_random(10),
+                    'password' => str_random(10)
                 ]);
+            if(!$user->exists){
+                $user->save();
+            }
             Auth::login($user);
         } catch (\InvalidArgumentException $e) {
         }

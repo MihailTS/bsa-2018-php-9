@@ -15,7 +15,9 @@
         @auth
             <ul class="left">
                 <li><a href="{{route('currencies.index')}}">Currencies</a></li>
-                <li><a href="{{route('currencies.create')}}">Add</a></li>
+                @can('create',\App\Currency::class)
+                    <li><a href="{{route('currencies.create')}}">Add</a></li>
+                @endcan
             </ul>
         @endauth
         <ul class="right">

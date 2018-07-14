@@ -44,15 +44,23 @@
                 <td>
                     {{$currency->price}}
                 </td>
-                <td>
-                    <form class="currency-delete-form" action="{{ route('currencies.destroy',$currency->id) }}"
-                          method="POST">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <a class="btn edit-button" href="{{route('currencies.edit',$currency->id)}}">Edit</a>
-                        <button class="btn red delete-button" type="submit">Delete</button>
-                    </form>
-                </td>
+                @if( Gate::check('update',$currency) || Gate::check('delete',$currency) )
+                    <td>
+                        <div class="currencies__edit-btns">
+                            @can('update',$currency)
+                                <a class="btn currencies__edit-btn edit-button" href="{{route('currencies.edit',$currency->id)}}">Edit</a>
+                            @endcan
+                            @can('delete',$currency)
+                                <form class="currency-delete-form" action="{{ route('currencies.destroy',$currency->id) }}"
+                                      method="POST">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+                                    <button class="btn red delete-button currencies__edit-btn" type="submit">Delete</button>
+                                </form>
+                            @endcan
+                        </div>
+                    </td>
+                @endif
             </tr>
         @empty
             <div class="card">
