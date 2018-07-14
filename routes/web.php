@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 Route::resource('currencies', 'Currency\CurrencyController');
 
-Route::get('login/github', 'Auth\LoginController@redirectToProvider');
-Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('login/{providerName}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{providerName}/callback', 'Auth\LoginController@handleProviderCallback');

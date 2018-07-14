@@ -38,7 +38,19 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => env('GITHUB_URL'),
+        'redirect' => env('GITHUB_REDIRECT_URI'),
     ],
 
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_secret' => env('TWITTER_CLIENT_SECRET'),
+        'redirect' => env('TWITTER_REDIRECT_URI'),
+    ],
+
+    //this provider needs a valid redirect url with https certificate :(
+    'battlenet' => [
+        'client_id' => env('BATTLENET_CLIENT_ID'),
+        'client_secret' => env('BATTLENET_CLIENT_SECRET'),
+        'redirect' => env('BATTLENET_REDIRECT_URI'),
+    ],
 ];
