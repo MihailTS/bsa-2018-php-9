@@ -82,7 +82,7 @@ class CurrencyController extends Controller
     public function edit(int $id)
     {
         $currency = Currency::find($id);
-        if (!$currency || /*
+        if ($currency === null || /*
               Yes, I can get Currency model instead of id as param of this method
               but test "Task3GeneralUserActionsTest@test_user_dont_see_edit_currency_page"
               needs redirect instead of 404 error ¯\_(ツ)_/¯ */
