@@ -56,6 +56,20 @@
                                             <span>{{ __('Remember Me') }}</span>
                                         </label>
                                     </div>
+                                    <div class="social-login">
+                                        <div class="social-login__title">Or you can login via:</div>
+                                        <div class="social-login__providers">
+                                            <a href="{{route('socialLogin','github')}}">
+                                                <img src="{{asset('/images/github.png')}}" alt="github">
+                                            </a>
+                                            <a href="{{route('socialLogin','twitter')}}">
+                                                <img src="{{asset('/images/twitter.png')}}" alt="twitter">
+                                            </a>
+                                            <a href="{{route('socialLogin','battlenet')}}">
+                                                <img src="{{asset('/images/bnet.png')}}" alt="battlenet">
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

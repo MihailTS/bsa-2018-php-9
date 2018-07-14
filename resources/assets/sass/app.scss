@@ -12,3 +12,15 @@
 .btn {
   text-transform: none;
 }
+
+.social-login{
+  margin:20px;
+}
+.social-login__title{
+  text-align:center;
+  margin-bottom:15px;
+}
+.social-login__providers{
+  display: flex;
+  justify-content: space-evenly;
+}

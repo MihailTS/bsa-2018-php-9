@@ -23,5 +23,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('login/{providerName}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{providerName}', 'Auth\LoginController@redirectToProvider')->name('socialLogin');
 Route::get('login/{providerName}/callback', 'Auth\LoginController@handleProviderCallback');
