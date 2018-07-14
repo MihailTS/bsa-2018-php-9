@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Currency;
 use App\Currency;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CurrencyRequest;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 
 class CurrencyController extends Controller
@@ -28,6 +29,9 @@ class CurrencyController extends Controller
      */
     public function create()
     {
+        if (Gate::denies('create', Currency::class)) {
+            return redirect()->route('currencies.index');
+        }
         $title = 'Add currency';
         return view('currencies.create', ['title' => $title]);
     }
@@ -41,6 +45,9 @@ class CurrencyController extends Controller
      */
     public function store(CurrencyRequest $request)
     {
+        if (Gate::denies('create', Currency::class)) {
+            return redirect()->route('currencies.index');
+        }
         $currency = new Currency();
         $currency->title = $request->getTitle();
         $currency->short_name = $request->getShortName();
@@ -60,6 +67,9 @@ class CurrencyController extends Controller
      */
     public function show(Currency $currency)
     {
+        if (Gate::denies('view', $currency)) {
+            return redirect()->route('currencies.index');
+        }
         return view('currencies.show', ['currency' => $currency, 'title' => $currency->title]);
     }
 
@@ -71,6 +81,9 @@ class CurrencyController extends Controller
      */
     public function edit(Currency $currency)
     {
+        if (Gate::denies('update', $currency)) {
+            return redirect()->route('currencies.index');
+        }
         return view('currencies.edit', ['currency' => $currency, 'title' => $currency->title]);
     }
 
@@ -83,6 +96,9 @@ class CurrencyController extends Controller
      */
     public function update(CurrencyRequest $request, Currency $currency)
     {
+        if (Gate::denies('update', $currency)) {
+            return redirect()->route('currencies.index');
+        }
         if ($request->has('title')) {
             $currency->title = $request->getTitle();
         }
@@ -111,6 +127,10 @@ class CurrencyController extends Controller
      */
     public function destroy(Currency $currency)
     {
+        if (Gate::denies('delete', $currency)) {
+            return redirect()->route('currencies.index');
+        }
+
         $currency->delete();
 
         Session::flash('success_msg', 'Currency successfully deleted!');
