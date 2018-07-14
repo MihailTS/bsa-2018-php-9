@@ -71,8 +71,7 @@ class LoginController extends Controller
                 [
                     'name' => $socialUser->name,
                     'email' => $email,
-                    'password' => str_random(10),
-                    'is_admin' => false
+                    'password' => str_random(10)
                 ]);
             if(!$user->exists){
                 $user->save();
