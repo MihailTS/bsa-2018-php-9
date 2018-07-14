@@ -1,14 +1,14 @@
+@import '~materialize-css/dist/css/materialize';
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+.currency-field__name {
+  font-weight: bold;
+  color: black;
+}
 
-// Variables
-@import "variables";
+.currency-show-table {
+  margin-bottom: 10px;
+}
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.btn {
+  text-transform: none;
 }
